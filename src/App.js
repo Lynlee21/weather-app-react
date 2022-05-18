@@ -60,7 +60,7 @@ export default function App() {
             </div>
           </div>
           <small>
-            <a href="https://github.com/Lynlee21/weather-app">
+            <a href="https://github.com/Lynlee21/weather-app-react">
               Open-source code
             </a>
             by Lynlee Anderson
