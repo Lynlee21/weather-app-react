@@ -1,38 +1,103 @@
-.App {
+.App body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e8e8e8;
+}
+
+.App h1 {
+  color: #495464;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.App .btn {
+  background-color: #495464;
+  border: none;
+}
+.App .btn:hover {
+  background-color: #bbbfca;
+}
+.App ul {
+  margin: 0;
+  padding: 0;
+}
+
+.App li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: rgb(135, 135, 135);
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+.App li:first-letter {
+  text-transform: capitalize;
+}
+
+.App .wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.App .weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  background-color: #f4f4f2;
+}
+
+.App .overview {
+  margin-bottom: 20px;
+}
+
+.App .weather-temperature img {
+  margin-right: 5px;
+  margin-bottom: 40px;
+  height: 72px;
+  width: 72px;
+}
+
+.App .weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.App .weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+  text-decoration: none;
+}
+
+.App .weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+
+.App .weather-temperature .active:hover {
+  text-decoration: none;
+}
+
+.App .weather-forecast {
+  margin-top: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App .weather-forecast-temperature-min {
+  opacity: 0.5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .weather-forecast-temperature {
+  font-size: 13px;
 }
