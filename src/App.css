@@ -42,6 +42,11 @@
   margin: 30px auto;
 }
 
+footer {
+  font-family: monospace;
+  text-align: center;
+}
+
 .App .weather-app {
   padding: 20px;
   border: 1px solid #dadde1;
