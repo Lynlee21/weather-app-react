@@ -37,14 +37,14 @@
   text-transform: capitalize;
 }
 
-.App .wrapper {
+.App {
   max-width: 600px;
   margin: 30px auto;
 }
 
-footer {
+.App footer {
   font-family: monospace;
-  text-align: center;
+  margin: 10px 0;
 }
 
 .App .weather-app {
