@@ -14,6 +14,7 @@ export default function Weather() {
                   className="form-control"
                   id="city-input"
                   autocomplete="off"
+                  autoFocus="on"
                 />
               </div>
               <div className="col-3">
