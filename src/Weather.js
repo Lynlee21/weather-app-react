@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       city: response.data.name,
       temperature: response.data.main.temp,
+      date: "Wednesday",
       description: response.data.weather[0].description,
       humidity: Math.round(response.data.main.humidity),
       wind: Math.round(response.data.wind.speed),
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
-    setReady(true);
   }
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div className="wrapper">
@@ -47,17 +47,19 @@ export default function Weather() {
               <h1 id="city">{weatherData.city}</h1>
               <ul>
                 <li>
-                  Last updated: <span id="date">12:00 PM</span>
+                  <span id="date">{weatherData.date}</span>
                 </li>
-                <li id="description">{weatherData.description}</li>
+                <li id="description" className="text-capitalize">
+                  {weatherData.description}
+                </li>
               </ul>
             </div>
             <div className="row">
               <div className="col-6">
                 <div className="clearfix weather-temperature">
                   <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                    alt="Sunny"
+                    src={weatherData.iconUrl}
+                    alt={weatherData.description}
                     class="float-left"
                   />
                   <strong id="temperature">
