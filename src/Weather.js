@@ -10,7 +10,7 @@ export default function Weather() {
       ready: true,
       city: response.data.name,
       temperature: response.data.main.temp,
-      date: "Wednesday",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: Math.round(response.data.main.humidity),
       wind: Math.round(response.data.wind.speed),
@@ -47,7 +47,7 @@ export default function Weather() {
               <h1 id="city">{weatherData.city}</h1>
               <ul>
                 <li>
-                  <span id="date">{weatherData.date}</span>
+                  <span id="date"><FormattedDate date={weatherData.date} /></span>
                 </li>
                 <li id="description" className="text-capitalize">
                   {weatherData.description}
