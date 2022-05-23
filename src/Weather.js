@@ -3,9 +3,18 @@ import axios from "axios";
 
 export default function Weather() {
   const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+  const [weatherData, setWeatherData] = useState({});
+
   function handleResponse(response) {
-    setTemperature(response.data.main.temp);
+    console.log(response.data);
+    setWeatherData({
+      city: response.data.name,
+      temperature: response.data.main.temp,
+      description: response.data.weather[0].description,
+      humidity: Math.round(response.data.main.humidity),
+      wind: Math.round(response.data.wind.speed),
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    });
     setReady(true);
   }
   if (ready) {
@@ -35,12 +44,12 @@ export default function Weather() {
               </div>
             </form>
             <div className="overview">
-              <h1 id="city">New York</h1>
+              <h1 id="city">{weatherData.city}</h1>
               <ul>
                 <li>
                   Last updated: <span id="date">12:00 PM</span>
                 </li>
-                <li id="description"></li>
+                <li id="description">{weatherData.description}</li>
               </ul>
             </div>
             <div className="row">
@@ -51,17 +60,19 @@ export default function Weather() {
                     alt="Sunny"
                     class="float-left"
                   />
-                  <strong id="temperature">{Math.round(temperature)}</strong>
+                  <strong id="temperature">
+                    {Math.round(weatherData.temperature)}
+                  </strong>
                   <span className="units">°C | °F</span>
                 </div>
               </div>
               <div className="col-6">
                 <ul>
                   <li>
-                    Humidity: <span id="humidity">52</span>%
+                    Humidity: <span id="humidity">{weatherData.humidity}</span>%
                   </li>
                   <li>
-                    Wind: <span id="wind">12</span> mph
+                    Wind: <span id="wind">{weatherData.wind}</span> mph
                   </li>
                 </ul>
               </div>
