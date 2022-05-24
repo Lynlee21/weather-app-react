@@ -106,3 +106,7 @@
 .App .weather-forecast-temperature {
   font-size: 13px;
 }
+
+.float-left {
+  float: left;
+}
